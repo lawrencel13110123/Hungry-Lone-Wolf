@@ -1,0 +1,555 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			{{!-- Creates the hamburger button --}}
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" id="hamburger-custom">
+				<span class="sr-only">Toggle navigation</span>
+				{{!-- Creates the 3 lines for the hamburgers --}}
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<h2 id="home-icon-title">
+				<img id="home-wolf-icon" src="static/assets/images/wolf_icon_white.png" alt="Hungry Lonewolf Icon"> Hungry Lonewolf
+			</h2>
+		</div>
+
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right" id="list-custom">
+				<li><a href="#plan">Plan</a></li>
+				<li><a href="#potential">Potential</a></li>
+				<li><a href="#past">Past</a></li>
+				<li><a href="/logout" id="no-border">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+<a class="anchor" id="plan"></a>
+<section id="plan-section">
+	<div class="container section-padding">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="section-heading">Find a Meal Buddy <i class="fa fa-users" aria-hidden="true"></i></h2>
+				<hr class="section-break">
+				<h4 id="plan-description">Tired of eating alone? Fret not. Select the date that you are eating alone and answer the few questions below and we will set you up with the best food buddy!</h4>
+				{{!-- <h4 id="take-survey"><a href="/survey">Begin Survey</a><h4> --}}
+				{{!-- <a href="/survey"><button type="button" class="authentication-button">BEGIN SURVEY</button></a> --}}
+				<div class="row">
+					<div class="col-md-5"></div>
+					<div class="col-md-2">
+						<button type="submit" class="authentication-button" id="begin-survey" data-target="#survey">BEGIN SURVEY</button>
+					</div>
+					<div class="col-md-5"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{{!-- Survey Modal --}}
+	<div class="container">
+		<div id="survey" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-md">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2 class="modal-title">Survey</h2>
+					</div>
+					<div class="modal-body">
+						<form action="/home" method="POST">
+							<div id="time">
+								<h3 class="survey-headers">Time</h3>
+								{{!-- Date --}}
+								<div class="input-group ">
+									<span class="input-group-addon icons" id="calendar-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+									<input type="date" class="form-control" id="survey-date" name="date" placeholder="Date" onfocus="(this.type='date')" onblur="(this.type='text')">
+								</div>
+								{{!-- Location --}}
+								<div class="input-group">
+									<span class="input-group-addon icons" id="location-icon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" id="survey-location" name="location" placeholder="City" onfocus="geolocate()">
+								</div>
+							</div>
+							<div id="ideal-meal-buddy">
+								<h3 class="survey-headers">Ideal Meal Buddy</h3>
+								{{!-- Gender --}}
+								<div>
+									<label class="radio-inline gender-radio">
+										<input type="radio" name="gender-radio" id="male-radio" value="male"> Male
+									</label>
+									<label class="radio-inline gender-radio">
+										<input type="radio" name="gender-radio" id="female-radio" value="female"> Female
+									</label>
+									<label class="radio-inline gender-radio">
+										<input type="radio" name="gender-radio" id="no-preference-radio" value="no preference"> No Preference
+									</label>
+								</div>
+								{{!-- Age --}}
+								<select class="form-control" id="survey-age">
+									<option disabled selected>Select Age</option>
+									<option value="18 - 24">18 - 24</option>
+									<option value="25 - 34">25 - 34</option>
+									<option value="35 - 44">35 - 44</option>
+									<option value="45 - 54">45 - 54</option>
+									<option value="Over 55">Over 55</option>
+								</select>
+							</div>
+							<div id="adventure-details">
+								<h3 class="survey-headers">Adventure Details</h3>
+								{{!-- Meal of the Day --}}
+								<div>
+									<label class="radio-inline meal-of-the-day-radio">
+										<input type="radio" name="meal-of-the-day-radio" id="breakfast-radio" value="breakfast"> Breakfast
+									</label>
+									<label class="radio-inline meal-of-the-day-radio">
+										<input type="radio" name="meal-of-the-day-radio" id="lunch-radio" value="lunch"> Lunch
+									</label>
+									<label class="radio-inline meal-of-the-day-radio">
+										<input type="radio" name="meal-of-the-day-radio" id="dinner-radio" value="dinner"> Dinner
+									</label>
+									<label class="radio-inline meal-of-the-day-radio">
+										<input type="radio" name="meal-of-the-day-radio" id="late-night-radio" value="late night"> Late Night
+									</label>
+								</div>
+								{{!-- Cuisine --}}
+								<select multiple class="form-control" id="survey-cuisine">
+									<option disabled selected>Select Cuisine</option>
+									<option value="Chinese">Chinese</option>
+									<option value="Japanese">Japanese</option>
+									<option value="Korean">Korean</option>
+									<option value="Thai">Thai</option>
+									<option value="Indian">Indian</option>
+									<option value="American">American</option>
+									<option value="Mexican">Mexican</option>
+									<option value="Italian">Italian</option>
+									<option value="French">French</option>
+									<option value="Mediterranean">Mediterranean</option>
+									<option value="Middle Eastern">Middle Eastern</option>
+									<option value="Other">Other</option>
+								</select>
+								{{!-- Cuisine Price Range --}}
+								<select class="form-control" id="survey-price-range">
+									<option disabled selected>Select Price Range</option>
+									<option value="$">$ (Inexpensive)</option>
+									<option value="$$">$$ (Moderate)</option>
+									<option value="$$$">$$$ (Pricey)</option>
+									<option value="$$$$">$$$$ (Ultra High-End)</option>
+								</select>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-md-4"></div>
+								<div class="col-md-4">
+									<button type="submit" class="authentication-button" id="submit-survey" data-target="#closest-match"><i class="fa fa-check-circle" aria-hidden="true"></i> SUBMIT</button>									
+								</div>
+								<div class="col-md-4"></div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	{{!-- Closest Match Modal --}}
+	<div class="container">
+		<div id="closest-match" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-md">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2 class="modal-title">Ideal Meal Buddy</h2>
+					</div>
+					<div class="modal-body">
+						<h4 id="no-results">Oh no! We could not find any matches. Please try again later.</h4>
+						<div id="match-results">
+							<h4><span id="closest-match-first-name-header">Casey</span> <span id="closest-match-last-name">Kwok</span></h4>
+							<img src="static/assets/images/profile_image.jpg" class="img-responsive" alt="Closest Match Photo" id="closest-match-image">
+							<p><strong>Date: </strong><span id="closest-match-date">August 1, 2017</span></p>
+							<p><strong>Location: </strong><span id="closest-match-location">San Francisco, CA</span></p>
+							<p><strong>Meal: </strong><span id="closest-match-meal">Lunch</span></p>
+							<p><strong>Cuisine Preferences: </strong><span id="closest-match-cuisine">Chinese, Korean, Japanese</span></p>
+							<p><strong>Age Group: </strong><span id="closest-match-age">22 - 32</span></p>
+							<p id="learn-more">Want to learn more about <span id="closest-match-first-name-learn">Casey</span>? Check under 'Potential Plans' for the full bio!</p>						
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<a class="anchor" id="potential"></a>
+<section id="potential-section">
+	<div class="container section-padding">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="section-heading">Potential Plans <i class="fa fa-cutlery" aria-hidden="true"></i></h2>
+				<hr class="section-break">
+			</div>
+		</div>
+		{{#each potential}}
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<button class="accordion">{{date this.plan.date "MMMM D, YYYY (dddd)"}}: {{this.plan.meal}} with {{this.match.first_name}} {{this.match.last_name}} @ {{this.plan.location}}</button>
+					<div class="panel">
+						<div class="row panel-content">
+							<div class="col-md-4 col-sm-6">
+								<img id="profile-image" src="{{this.match.image}}" class="img-thumbnail" alt="Profile Image">
+							</div>
+							<div class="col-md-8 col-sm-6" id="profile-description">
+							{{!-- this is where the email sender is created with auto subject header use "mailto"--}}
+							{{!-- for the envelope icon: https://www.w3schools.com/icons/fontawesome_icons_intro.asp --}}
+								<h3 id="date-name">{{this.match.first_name}} {{this.match.last_name}} <a id="date-email" href="mailto:{{this.match.email}}?Subject=Hello!%20This%20is%20{{this.plan.user.first_name}}%20from%20Hungry%20Lonewolf!" target="_top"><i class="fa fa-envelope" aria-hidden="true"></i></a></h3>
+								<p id="date-age"><strong>Age: </strong>{{this.match.age}}</p>
+								<p id="date-gender"><strong>Gender: </strong>{{this.match.gender}}</p>
+								<p id="date-bio"><strong>Biography: </strong>{{this.match.about}}</p>
+								<p id="date-cuisine-preferences"><strong>Cuisine Preferences: </strong>{{split this.plan.cuisine}}</p>
+								<p id="date-cuisine-price"><strong>Price Range: </strong>{{this.plan.price}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		{{else}}
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8" id="empty-potential">Start taking surveys to get matched with the best meal buddy!</div>
+				<div class="col-md-2"></div>
+			</div>
+		{{/each}}
+
+	</div>
+</section>
+
+<a class="anchor" id="past"></a>
+<section id="past-section">
+	<div class="container section-padding">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="section-heading">Past Adventures <i class="fa fa-car" aria-hidden="true"></i></h2>
+				<hr class="section-break">
+			</div>
+		</div>
+		{{#each past}}
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<div class="past-plans">{{date this.plan.date "MMMM D, YYYY (dddd)"}}: {{this.plan.meal}} with {{this.match.first_name}} {{this.match.last_name}} @ {{this.plan.location}}</div>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		{{else}}
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8" id="empty-past">No previous plans.</div>
+				<div class="col-md-2"></div>
+			</div>
+		{{/each}}
+	</div>
+</section>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3zxPOYEjaZFkWhGi4WRjUVWXXXF7GRUA&libraries=places&region=US&callback=initAutocomplete"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+<script>
+
+	//////////////////////////////////////////////////////////////////////////
+	/////////////////////// Set up calendar for survey ///////////////////////
+	//////////////////////////////////////////////////////////////////////////
+	var today = moment().format("YYYY-MM-DD");
+	// console.log(today)
+	var future = moment().add(0.5, "years").format("YYYY-MM-DD");
+	// console.log(future)
+	$("#survey-date").attr("min", today);
+	$("#survey-date").attr("max", future);
+
+	//////////////////////////////////////////////////////////////////////////
+	/////////////// Set up geolocate() functionality for survey //////////////
+	//////////////////////////////////////////////////////////////////////////
+	var placeSearch, autocomplete;
+	var componentForm = {
+		street_number: 'short_name',
+		route: 'long_name',
+		locality: 'long_name',
+		administrative_area_level_1: 'short_name',
+		country: 'long_name',
+		postal_code: 'short_name'
+	};
+	 
+	var directionsService;
+	var directionsDisplay;
+	var directionDisplay2; 
+
+	function initAutocomplete() {
+		// Create the autocomplete object, restricting the search to geographical
+		// location types.
+		options = {
+			types: ['(cities)'],
+			componentRestrictions: { country: "us" }
+		}
+
+		autocomplete = new google.maps.places.Autocomplete(
+		/** @type {!HTMLInputElement} */(document.getElementById('survey-location')), options);
+	};
+
+	// Bias the autocomplete object to the user's geographical location,
+	// as supplied by the browser's 'navigator.geolocation' object.
+	function geolocate() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				var geolocation = {
+					lat: position.coords.latitude,
+					lng: position.coords.longitude
+				};
+				var circle = new google.maps.Circle({
+					center: geolocation,
+					radius: position.coords.accuracy
+				});
+				autocomplete.setBounds(circle.getBounds());
+			});
+		}
+	};
+
+
+	//////////////////////////////////////////////////////////////////////////
+	/////////////// Set up geolocate() functionality for survey //////////////
+	//////////////////////////////////////////////////////////////////////////
+	$(".accordion").on("click", function() {
+		var $this = $(this).toggleClass("active"); // change the class of this element to 'active' (i.e. change background color to orange)
+		var $panel = $this.next().toggleClass("show"); // change the class of the next element after this to 'show' (i.e. make the panel content visible)
+		$(".accordion.active").not(this).removeClass("active").next().removeClass("show"); // for every element that has class 'accordian' and 'active' (accordian class that is active/showing) that is not the current one, remove the class 'active' and for the next element after it after that, remove the class 'show'
+	});
+
+
+	//////////////////////////////////////////////////////////////////////////
+	//////////////////////// Account for static navbar ///////////////////////
+	//////////////////////////////////////////////////////////////////////////
+	function changePadding() {
+		$("body").css("padding-top", "70px");
+	};
+	changePadding();
+
+	//////////////////////////////////////////////////////////////////////////
+	///////////////////////// Display survey modal ///////////////////////////
+	//////////////////////////////////////////////////////////////////////////
+	$("#begin-survey").on("click", function(event) {
+		event.preventDefault();
+		$("#survey").modal("toggle");
+	});
+
+	//////////////////////////////////////////////////////////////////////////
+	/////////////// Capitalize first letter for best match modal /////////////
+	//////////////////////////////////////////////////////////////////////////
+	function capitalizeFirstLetter(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	};
+
+	//////////////////////////////////////////////////////////////////////////
+	///////////////////////// Validate survey ////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////
+	function resetCSS() {
+		$("span#calendar-icon.input-group-addon.icons").css("background-color", "#eee");
+		$("span#calendar-icon.input-group-addon.icons").css("border-color", "#ccc");
+		$("span#calendar-icon.input-group-addon.icons").css("color", "#555");
+		$("input#survey-date.form-control").css("border-color", "#ccc");
+		$("span#location-icon.input-group-addon.icons").css("background-color", "#eee");
+		$("span#location-icon.input-group-addon.icons").css("border-color", "#ccc");
+		$("span#location-icon.input-group-addon.icons").css("color", "#555");
+		$("input#survey-location.form-control").css("border-color", "#ccc");	
+		$("#survey-age").css("outline", "1px solid #cccccc");
+		$("#survey-cuisine").css("outline", "1px solid #cccccc");
+		$("#survey-price-range").css("outline", "1px solid #cccccc");
+	};
+
+	$("#submit-survey").on("click", function(event) {
+		event.preventDefault();
+
+		function validateForm() {
+			let valid = true;
+			// If user did not provide a date
+			if (!$("#survey-date").val() || !($("#survey-date").val() >= today && $("#survey-date").val() <= future)) {
+				$("span#calendar-icon.input-group-addon.icons").css("background-color", "#f2dede");
+				$("span#calendar-icon.input-group-addon.icons").css("border-color", "#a94442");
+				$("span#calendar-icon.input-group-addon.icons").css("color", "#a94442");
+				$("input#survey-date.form-control").css("border-color", "#a94442");
+				valid = false;
+			} else {
+				$("span#calendar-icon.input-group-addon.icons").css("background-color", "#dff0d8");
+				$("span#calendar-icon.input-group-addon.icons").css("border-color", "#3c763d");
+				$("span#calendar-icon.input-group-addon.icons").css("color", "#3c763d");
+				$("input#survey-date.form-control").css("border-color", "#3c763d");					
+			}
+			// If user does not provide a location
+			if (!$("#survey-location").val()) {
+				$("span#location-icon.input-group-addon.icons").css("background-color", "#f2dede");
+				$("span#location-icon.input-group-addon.icons").css("border-color", "#a94442");
+				$("span#location-icon.input-group-addon.icons").css("color", "#a94442");
+				$("input#survey-location.form-control").css("border-color", "#a94442");
+				valid = false;
+			} else {
+				$("span#location-icon.input-group-addon.icons").css("background-color", "#dff0d8");
+				$("span#location-icon.input-group-addon.icons").css("border-color", "#3c763d");
+				$("span#location-icon.input-group-addon.icons").css("color", "#3c763d");
+				$("input#survey-location.form-control").css("border-color", "#3c763d");					
+			}
+			// If user does not provide a gender preference
+			if (!$("#male-radio").is(":checked") && !$("#female-radio").is(":checked") && !$("#no-preference-radio").is(":checked")) {
+				$(".gender-radio").css("color", "#a94442");
+				valid = false;
+			} else {
+				$(".gender-radio").css("color", "#000000");	
+			}
+			// If user does not provide an age preference
+			if (!$("#survey-age").val()) {
+				$("#survey-age").css("outline", "1px solid #a94442");
+				valid = false;
+			} else {
+				$("#survey-age").css("outline", "1px solid #3c763d");	
+			}
+			// If user does not provide a meal preference
+			if (!$("#breakfast-radio").is(":checked") && !$("#lunch-radio").is(":checked") && !$("#dinner-radio").is(":checked") && !$("#late-night-radio").is(":checked")) {
+				$(".meal-of-the-day-radio").css("color", "#a94442");
+				valid = false;
+			} else {
+				$(".meal-of-the-day-radio").css("color", "#000000");	
+			}
+			// If user does not provide a cuisine preference
+			if ($("#survey-cuisine").val().length === 0) {
+				$("#survey-cuisine").css("outline", "1px solid #a94442");
+				valid = false;
+			} else {
+				$("#survey-cuisine").css("outline", "1px solid #3c763d");
+			}
+			// If user does not provide a price range
+			if (!$("#survey-price-range").val()) {
+				$("#survey-price-range").css("outline", "1px solid #a94442");
+				valid = false;
+			} else {
+				$("#survey-price-range").css("outline", "1px solid #3c763d");
+			}			
+			// if (!valid) {
+			// 	alert("Please fill out all fields.");
+			// }
+			return valid;
+		};
+
+		if (validateForm()) {
+
+			let gender;
+			let meal; 
+
+			// See whether gender is female, male, or no preference
+			if ($("#male-radio").is(":checked")) {
+				gender = "Male";
+			} else if ($("#female-radio").is(":checked")) {
+				gender = "Female";
+			} else if ($("#no-preference-radio").is(":checked")) {
+				gender = "No Preference";
+			};
+
+			// See whether meal is breakfast, lunch, dinner, or late night
+			if ($("#breakfast-radio").is(":checked")) {
+				meal = "Breakfast";
+			} else if ($("#lunch-radio").is(":checked")) {
+				meal = "Lunch";
+			} else if ($("#dinner-radio").is(":checked")) {
+				meal = "Dinner";
+			} else if ($("#late-night-radio").is(":checked")) {
+				meal = "Late Night";
+			}
+
+			var surveyAnswer = {
+				date: $("#survey-date").val(),
+				location: $("#survey-location").val(),
+				gender: gender,
+				age: $("#survey-age").val(),
+				meal: meal,
+				cuisine: $("#survey-cuisine").val(),
+				price: $("#survey-price-range").val()
+			};
+
+			// alert("Form is validated!");
+
+			// Clear form inputs
+			$("#survey-date").val("");
+			$("#survey-location").val("");
+			$("input[type='radio']").prop("checked", false);
+			$("#survey-age").val("Select Age");
+			$("#survey-cuisine").val("Select Cuisine");
+			$("#survey-price-range").val("Select Price Range");
+
+			// Reset CSS
+			resetCSS();
+
+			// Post request with survey answers
+			// $.post("/home", surveyAnswer);
+			// $("#survey").modal("hide");
+			// $("#closest-match").modal("toggle");
+
+			$.post("/home", surveyAnswer)
+			.done(function(data) {
+				console.log("------------------------------------");
+				console.log("Receiving data to display on modal")
+				console.log("------------------------------------");
+				console.log("Data: ", data);
+
+				// Clear all the data from the previous modal before displaying
+				$("#no-results").hide();
+				$("#match-results").hide();
+				$("#closest-match-name").text("");
+				$("#closest-match-image").text("");
+				$("#closest-match-date").text("");
+				$("#closest-match-meal").text("");
+				$("#closest-match-cuisine").text("");
+				$("#closest-match-age").text("");
+
+				// If the data returned if false, meaning there are no results
+				if (!data) {
+					$("#survey").modal("hide");
+					$("#no-results").show();
+					$("#closest-match").modal("toggle");
+				} else {
+
+					// var newCuisineArr = [];
+
+					// var oldCuisineArr = data.plan.cuisine.split(",");
+					// oldCuisineArr.forEach(function(cuisine) {
+					// 	newCuisineArr.push(capitalizeFirstLetter(cuisine));
+					// });
+
+					$("#survey").modal("hide");
+					$("#match-results").show();
+					$("#closest-match-first-name-header").text(data.match.first_name);
+					$("#closest-match-last-name").text(data.match.last_name);
+					$("#closest-match-image").attr("src", data.match.image);
+					$("#closest-match-date").text(moment(data.plan.date).format("MMMM D, YYYY"));
+					$("#closest-match-location").text(data.plan.location);
+					$("#closest-match-meal").text(capitalizeFirstLetter(data.plan.meal));
+					$("#closest-match-cuisine").text(data.plan.cuisine.split(",").join(", "));
+					$("#closest-match-age").text(data.match.age);
+					$("#closest-match-first-name-learn").text(data.match.first_name);
+					$("#closest-match").modal("toggle");
+				}
+			});
+		}
+	});
+
+	//////////////////////////////////////////////////////////////////////////
+	/////////// Reload the page after each new match is displayed ////////////
+	//////////////////////////////////////////////////////////////////////////
+	$("#closest-match").on("hidden.bs.modal", function() {
+		location.reload();
+	});
+
+</script>

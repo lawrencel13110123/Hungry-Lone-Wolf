@@ -1,0 +1,474 @@
+#landing-icon-title {
+	/*color: #ffffff;*/
+	font-family: 'Zilla Slab Highlight', cursive;
+	font-size: 30px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+#landing-wolf-icon {
+	display: block;
+	height: 60px;
+	margin: auto;
+	margin-top: 20px;
+	width: 60px;
+}
+
+.navbar-custom {
+	background-color: #424447;
+}
+
+#list-custom {
+	margin-top: 20px;
+	margin-right: 3px;
+}
+
+#hamburger-custom {
+	margin-top: 18px;
+}
+
+.navbar-default .navbar-toggle:focus, 
+.navbar-default .navbar-toggle:hover {
+	background-color: #bf3d22;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: #ffffff;
+}
+
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #ffffff;
+}
+
+.navbar-default .navbar-nav>li>a {
+	border-right: solid 1px #ffffff;
+	color: #ffffff;
+	font-family: 'Montserrat', sans-serif;
+	padding-bottom: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 0px;
+}
+
+#no-border {
+	border-right: none;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: #bf3d22;
+	font-family: 'Montserrat', sans-serif;
+}
+
+a.anchor {
+	display: block;
+	position: relative;
+	top: -70px;
+	visibility: hidden;
+}
+
+#home-icon-title {
+	color: #ffffff;
+	font-family: 'Bitter', serif;
+	margin-top: 10px;
+}
+
+#home-wolf-icon {
+	height: 45px;
+	margin-bottom: 5px;
+}
+
+.authentication {
+	background: rgba(255, 255, 255, 0.8);
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding: 30px;
+	text-align: center;
+}
+
+#authentication-signup {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.authentication-input {
+	height: 50px;
+}
+
+#description-header {
+	font-family: 'Bitter', serif;
+	font-weight: bolder;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
+#description-paragraph {
+	font-family: 'Zilla Slab', serif;
+	font-size: 20px;
+	line-height: 1.3;
+}
+
+.authentication-body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.authentication-button-header, .other-action {
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-top: 20px;
+}
+
+.other-action {
+	margin-top: 10px;
+}
+
+.authentication-button {
+	background-color: #424447;
+	border: none;
+	border-radius: 5px;
+	color: #ffffff;
+	font-family: 'Montserrat', sans-serif;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	text-align: center;
+	width: 100%;
+}
+
+.authentication-button:hover {
+	background-color: #bf3d22;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+#login-button {
+	margin-bottom: 0px;
+}
+
+#sign-up-now:hover, #login-now:hover {
+	color: #bf3d22;
+	text-decoration: none;
+}
+
+.whole {
+	width: 100%;
+}
+
+#signup-first-name, #signup-age {
+	border-radius: 0px;
+	float: left;
+	width: 50%;
+}
+
+#signup-last-name, #signup-gender {
+	border-radius: 0px;
+	float: right;
+	width: 50%;
+}
+
+#signup-age, #signup-gender {
+	border: none;
+	outline: 1px solid #cccccc;
+	outline-offset: -1px;
+}
+
+#signup-about {
+	padding: 10px 12px;
+	resize: none; 
+}
+
+#signup-email {
+	margin-top: 10px;
+}
+
+input[type="password"]::-webkit-input-placeholder {
+	font-size: 14px;
+}
+
+input[type="password"]:-moz-placeholder {
+	font-size: 14px;
+}
+
+input[type="password"]:-ms-input-placeholder {
+	font-size: 14px;
+}
+
+input[type="password"]:-moz-placeholder {
+	font-size: 14px;
+}
+
+input[type=password] {
+	font-size: 20px;
+}
+
+.section-heading {
+	color: #424447;
+	font-family: 'Bitter', serif;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.section-break {
+	/*border: solid 3px #f69454;*/
+	/*border: solid 3px #e7552c;*/
+	border: solid 3px #bf3d22;
+	width: 50px;
+}
+
+#potential-section {
+	/*background-color: #d0e1f9;*/
+	background-color: #C9D7E5;
+}
+
+button.accordion {
+	background-color: #778899;
+	/*background-color: #4d648d;*/
+	border: none;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	outline: none;
+	padding: 15px;
+	text-align: left;
+	transition: 0.4s;
+	width: 100%;
+}
+
+/*When you hover over each panel, changes the background color to orange*/
+button.accordion.active,
+button.accordion:hover {
+	/*background-color: #f69454;*/
+	background-color: #bf3d22;
+	color: #ffffff;
+}
+
+/*Panel characteristics before you hover over each panel*/
+button.accordion:after {
+	color: #ffffff; /*Changes the color of the expand arrow icon to white*/
+	content: "\25bc"; /*Changes the expand/collapse icon on the right to expand arrow icon*/
+	float: right; /*Have the expand arrow icon on the right hand side of the entire panel*/
+	font-size: 12px; /*Changes the font size of the expand arrow icon*/
+	margin-left: 5px;
+}
+
+/*Panel characteristics after you hover over each panel*/
+button.accordion.active:after {
+	color: #ffffff;
+	content: "\25b2"; /*Changes the expand/collapse icon on the right to collapse arrow icon*/
+}
+
+.panel {
+	background-color: #ffffff;
+	border-radius: 0px;
+	max-height: 0px; /*Make the height of the panel 0 until it is clicked to be shown*/
+	opacity: 0; /*Make the content inside the each panel invisible until it is clicked to be shown*/
+	overflow: hidden;
+	padding: 0px 20px;
+	transition: 0.4s ease-in-out;
+	/*-webkit-box-shadow: none;*/
+}
+
+.panel.show {
+	max-height: 500px;
+	opacity: 1; /*Make the content inside the each panel visible when you are showing that panel/showing the content*/
+	overflow-y: auto;
+}
+
+.panel.hide {
+	height: 0px;
+	opacity: 0; /*Make the content inside the each panel invisible when you are hiding that panel/hiding the content*/
+}
+
+.panel-content {
+	font-family: 'Montserrat', sans-serif;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+.past-plans {
+	/*background-color: #d0e1f9;*/
+	background-color: #C9D7E5;
+	border: none;
+	color: #424447;
+	/*color: #ffffff;*/
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	margin-bottom: 22px;
+	outline: none;
+	padding: 15px;
+	text-align: left;
+	width: 100%;
+}
+
+.section-padding {
+	padding: 40px;
+/*	padding-bottom: 40px;
+	padding-top: 40px;*/
+}
+
+#profile-image {
+	width: 100%;
+}
+
+#date-name {
+	font-weight: bolder;
+	margin-top: 0px;
+}
+
+#date-phone, #date-email {
+	/*color: #bf3d22;*/
+	padding-left: 10px;
+}
+
+#plan-description {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 17px;
+	line-height: 1.5;
+	text-align: center;
+}
+
+#take-survey{
+	color: #bf3d22;
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+}
+
+.modal-header {
+	background-color: #424447;
+	color: #ffffff;
+	font-family: 'Bitter', serif;
+}
+
+.modal-body {
+	font-family: 'Montserrat', sans-serif;
+	margin-left: 10px;
+	margin-right: 10px;
+	overflow: auto;
+}
+
+.survey-headers {
+	background-color: #d0e1f9;
+	color: #000000;
+	font-size: 15px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.input-group-addon,
+input#survey-date.form-control,
+input#survey-location.form-control {
+	border-radius: 0px;
+}
+
+#survey-age, #survey-cuisine, #survey-price-range {
+	border: none;
+	margin-top: 10px;
+	outline: 1px solid #cccccc;
+	outline-offset: -1px;
+}
+
+input[type=radio] {
+	font-size: 10px;
+	margin: 5px 0 0;
+}
+
+.close {
+	color: #ffffff;
+	opacity: 0.5;
+}
+
+#time, #ideal-meal-buddy {
+	margin-bottom: 30px;
+}
+
+#closest-match-first-name-header,
+#closest-match-last-name {
+	font-size: 25px;
+}
+
+#closest-match-image {
+	float: left;
+	margin-bottom: 10px;
+	margin-right: 20px;
+	width: 300px;
+}
+
+/* this is a built in <div> for modal. we need to change this z-index to display the Google Autocomplete*/
+.pac-container {
+	z-index: 10000 !important;
+}
+
+#no-results, #match-results {
+	display: none;
+}
+
+#match-results {
+	font-size: 15px;
+}
+
+#no-results {
+	font-size: 18px;
+}
+
+#empty-potential, #empty-past {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 17px;
+	text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+	.navbar-default .navbar-nav>li>a {
+		border-right: none;
+		color: #ffffff;
+		font-family: 'Montserrat', sans-serif;
+		padding-bottom: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-top: 0px;
+	}
+
+	#home-icon-title {
+		margin-left: 10px;
+	}
+
+	#profile-image {
+		float: left;
+		margin-right: 20px;
+		width: 300px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	#home-icon-title {
+		font-size: 20px;
+	}
+
+	#home-wolf-icon {
+		height: 35px;
+	}
+
+	#hamburger-custom {
+		margin-top: 13px;
+	}
+
+	#profile-image {
+		float: left;
+		margin-right: 0px;
+		width: 100%;
+	}
+
+	#profile-description {
+		clear: both;
+		padding-top: 10px;
+	}
+
+	#closest-match-image {
+		width: 100%;
+	}
+}

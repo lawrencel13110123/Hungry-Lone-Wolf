@@ -1,0 +1,72 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<img id="landing-wolf-icon" src="static/assets/images/wolf_icon_white.png" alt="Hungry Lonewolf Icon">
+			<h3 id="landing-icon-title">HUNGRY LONEWOLF</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6 authentication">
+			<div class="authentication-header">
+				<h3 id="description-header">Welcome Back</h3>
+			</div>
+			<div class="authentication-body">
+				<div class="login">
+					<form action="/login" method="POST" onsubmit="return validateForm()">
+						<div class="input-group whole">
+							<input type="email" class="form-control authentication-input" id="login-email" name="email" placeholder="Email">
+						</div>
+						<div class="input-group whole">
+							<input type="password" class="form-control authentication-input" id="login-password" name="password" placeholder="Password">
+						</div>
+						<div class="row">
+							<div class="col-md-3"></div>
+							<div class="col-md-6">
+								<button type="submit" class="authentication-button">LOG IN</button>
+							</div>
+							<div class="col-md-3"></div>
+						</div>
+					</form>
+				</div>
+				<div class="sign-up">
+					<p class="other-action">NOT A MEMBER? <a href="/signup" id="sign-up-now">SIGN UP</a></p>
+				</div>			
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	function changeBackground() {
+		$("body").css("background-image", "url('/static/assets/images/homepage_background_2.jpg')");
+		$("body").css("background-size", "cover");
+		$("body").css("width", "100%");
+	};
+	changeBackground();
+
+	function resetCSS() {
+		$("#login-email").css("border", "1px solid #cccccc");
+		$("#login-password").css("border", "1px solid #cccccc");
+	};
+
+	function validateForm() {
+		resetCSS(); 
+		let valid = true;
+		
+		// If user does not provide an email 
+		if (!$("#login-email").val()) {
+			$("#login-email").css("border", "1px solid #a94442");
+			valid = false;
+		}
+		// If user does not provide a password 
+		if (!$("#login-password").val()) {
+			$("#login-password").css("border", "1px solid #a94442");
+			valid = false;
+		}
+		return valid;
+	};
+
+</script>

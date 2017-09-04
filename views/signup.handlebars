@@ -1,0 +1,139 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<img id="landing-wolf-icon" src="static/assets/images/wolf_icon_white.png" alt="Hungry Lonewolf Icon">
+			<h3 id="landing-icon-title">HUNGRY LONEWOLF</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6 authentication" id="authentication-signup">
+			<div class="authentication-header">
+				<h3 id="description-header">Gain Instant Access</h3>
+			</div>
+			<div class="authentication-body">
+				<div class="sign-up">
+					<form class="form-inline" action="/signup" method="POST" onsubmit="return validateForm()">
+						<div class="input-group whole">
+							<input type="text" class="form-control authentication-input" id="signup-first-name" name="first_name" placeholder="First Name">
+							<input type="text" class="form-control authentication-input" id="signup-last-name" name="last_name" placeholder="Last Name">
+						</div>
+						<div class="input-group whole">
+							<input type="text" class="form-control authentication-input" id="signup-image" name="image" placeholder="Image Link">
+						</div>
+						<div class="input-group whole">
+							<textarea class="form-control" rows="5" id="signup-about" name="about" placeholder="About Yourself (Min 10 Characters)"></textarea>
+						</div>
+						<div class="input-group whole">
+							{{!-- <input type="text" class="form-control authentication-input" id="signup-birthday" name="birthday" placeholder="Birthday" onfocus="(this.type='date')" onblur="(this.type='text')"> --}}
+							<select class="form-control authentication-input whole" id="signup-age" name="age">
+								<option disabled selected>Select Age</option>
+								<option value="18 - 24">18 - 24</option>
+								<option value="25 - 34">25 - 34</option>
+								<option value="35 - 44">35 - 44</option>
+								<option value="45 - 54">45 - 54</option>
+								<option value="Over 55">Over 55</option>
+							</select>
+							<select class="form-control authentication-input whole" id="signup-gender" name="gender">
+								<option disabled selected>Select Gender</option>
+								<option value="Female">Female</option>
+								<option value="Male">Male</option>
+							</select>
+						</div>
+						{{!-- <div class="input-group whole">
+							<input type="text" class="form-control authentication-input" id="signup-phone" name="phone" placeholder="Phone">
+						</div> --}}
+						<div class="input-group whole"> 
+							<input type="email" class="form-control authentication-input" id="signup-email" name="email" placeholder="Email">
+						</div>
+						<div class="input-group whole">
+							<input type="password" class="form-control authentication-input" id="signup-password" name="password" placeholder="Create Password (Min 6 Characters)">
+						</div>
+						<div class="row">
+							<div class="col-md-3"></div>
+							<div class="col-md-6">
+								<button type="submit" class="authentication-button" id="signup">SIGN UP</button>
+							</div>
+							<div class="col-md-3"></div>
+						</div>
+					</form>
+				</div>
+				<div class="login">
+					<p class="other-action">ALREADY A MEMBER? <a href="/login" id="login-now">LOG IN</a></p>
+				</div>			
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	function changeBackground() {
+		$("body").css("background-image", "url('/static/assets/images/homepage_background_2.jpg')");
+		$("body").css("background-size", "cover");
+		$("body").css("width", "100%");
+	};
+	changeBackground();
+
+	function resetCSS() {
+		$("#signup-first-name").css("border", "1px solid #cccccc");
+		$("#signup-last-name").css("border", "1px solid #cccccc");
+		$("#signup-image").css("border", "1px solid #cccccc");
+		$("#signup-about").css("border", "1px solid #cccccc");
+		$("#signup-age").css("outline", "1px solid #cccccc");
+		$("#signup-gender").css("outline", "1px solid #cccccc");
+		$("#signup-phone").css("border", "1px solid #cccccc");
+		$("#signup-email").css("border", "1px solid #cccccc");
+		$("#signup-password").css("border", "1px solid #cccccc");
+	};
+
+	function validateForm() {
+		resetCSS();
+		let valid = true;
+
+		// If user did not provide a first name
+		if (!$("#signup-first-name").val()) {
+			$("#signup-first-name").css("border", "1px solid #a94442");
+			valid = false;
+		}
+		// If user did not provide a last name
+		if (!$("#signup-last-name").val()) {
+			$("#signup-last-name").css("border", "1px solid #a94442");
+			valid = false;
+		}
+		// If user did not provide a photo URL
+		if (!$("#signup-image").val()) {
+			$("#signup-image").css("border", "1px solid #a94442");
+			valid = false;
+		}
+		// If user did not provide a biography or is less than 10 characters
+		if (!$("#signup-about").val() || $("#signup-about").val().trim().length < 10) {
+			$("#signup-about").css("border", "1px solid #a94442");
+			valid = false;				
+		}
+		// If user did not provide a birthday
+		if (!$("#signup-age").val()) {
+			$("#signup-age").css("outline", "1px solid #a94442");
+			valid = false;
+		}
+		// If user did not select a gender
+		if (!$("#signup-gender").val()) {
+			$("#signup-gender").css("outline", "1px solid #a94442");
+			valid = false;
+		}
+		// If user does not provide an email 
+		if (!$("#signup-email").val()) {
+			$("#signup-email").css("border", "1px solid #a94442");
+			valid = false;
+		}
+		// If user does not provide a password or is less than 6 characters 
+		if (!$("#signup-password").val() || $("#signup-password").val().trim().length < 6) {
+			$("#signup-password").css("border", "1px solid #a94442");
+			valid = false;
+		}
+
+		return valid;
+	};
+
+</script>
