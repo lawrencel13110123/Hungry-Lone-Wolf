@@ -70,7 +70,7 @@ To visit deployed application, go to https://still-depths-49015.herokuapp.com
 ![User 2 (Buffett) signup](/public/assets/images/buffett_signup.gif)
 
 ### User 2 (Buffett) survey
-![User 2 (Buffett) survey](/public/assets/images/buffett_survey.gif)
+![User 2 (Buffett) survey](/public/assets/images/buffett_survey.jpg)
 
 ### User 1 (Gates) survey
 ![User 1 (Gates) survey](/public/assets/images/gates_survey.gif)
